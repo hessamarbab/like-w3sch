@@ -1,0 +1,452 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>دبلیو3</title>
+<meta name="viewport" content="width=device-width, height=device-height,initial-scale=1.0">
+<meta charset="UTF-8">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!--script src="myScript1.js"></script--> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script>
+var open=new Array(0,0,0);
+var menu=0;
+var car=document.getElementsByClassName('list');
+function menuBtn()
+		{		
+				menu++;
+				menu%=2;
+				if(menu==0)
+				{
+				document.getElementById('mmd').style.width='0';
+				document.getElementById('mmd').style.padding='0';
+				document.getElementById('mmd').style.visibility='hidden';
+				}
+				else
+				{
+				document.getElementById('mmd').style.width='auto';
+				document.getElementById('mmd').style.padding='5%';
+				document.getElementById('mmd').style.visibility='visible';
+				}
+
+		}
+function listOpen(i)
+		{
+		var j=0;
+		open[i]++;
+		open[i]%=2;
+		if(open[i]==0)
+		{
+
+		document.getElementById('g'+i).style.visibility="visible";
+		document.getElementById('p'+i).style.visibility="hidden";
+		car[i].style.padding="0";
+		car[i].style.height="0";
+		car[i].style.visibility='hidden';
+		}
+		else
+		{
+			for(j=0;j<car.length;j++)
+			if(j!=i)
+			{
+			open[j]=1;
+			listOpen(j);
+			}
+			
+		document.getElementById('p'+i).style.visibility="visible";
+		document.getElementById('g'+i).style.visibility="hidden";
+		car[i].style.padding="5%";
+		car[i].style.visibility='visible';
+		car[i].style.height="auto";
+		}
+		}
+function listClose()
+		{
+		var j=0;
+		for(j=0;j<car.length;j++)
+		{	
+			
+			open[j]=1;
+			listOpen(j);
+		}
+		}
+</script>
+<style>
+body	{
+	
+		}
+*
+		{
+		font-family: Verdana,sans-serif;
+		box-sizing:border-box;
+		}
+.header
+		{
+		background-color:black;
+		padding:1vw 1vw 0vw 1vw;
+		color:white;
+		}
+.static
+		{
+		position:sticky;
+		
+		}
+.headcolor
+		{
+		color:red;
+		background-color:black;
+		
+		
+		}
+span.menu
+		{
+		color:white;
+		width:auto;
+		padding:1% 1% 1% 1%;
+		background-color:gray;
+		display:inline-block;
+	
+		}
+span.menu:hover	
+		{
+		background-color:black;
+		}
+.list
+		{
+		top:100%;
+		position:absolute;
+		color:white;
+		background-color:gray;
+		padding:0%;
+		height:0;
+		visibility:hidden;
+		}
+		.col-1 {width: 8.33%;}
+		h1{font-size:4vw}
+</style>
+</head>
+<body onresize="change();">
+<div onclick="listClose()"class="header row ">
+<div class="col-sm-8" >
+<h1>
+<b class="headcolor">w3hschools</b>.com
+</h1>
+</div>
+<div class="col-sm-4" style="float:right;padding-top:2vw;">
+<h6>
+THE WORLD'S LARGEST WEB DEVELOPER SITE
+</h6>
+</div>
+</div>
+
+
+<div class="static  navbar-inverse navbar-fixed-top" style="background-color:gray;white-space:nowrap;">
+<span id="barr" style="overflow-x:hidden">
+<span id="mnubtn"onclick="menuBtn()"class="menu glyphicon glyphicon-list" style="margin-left:1vw;">
+</span>
+
+<span class="menu glyphicon glyphicon-home"style="padding:1%">
+</span>
+
+<span class="menu">
+HTML
+</a>
+</span>
+
+<span class="menu flex">
+<a>
+CSS
+</a>
+</span>
+
+<span class="menu flex">
+<a>
+JavaScript
+</a>
+</span>
+</span>
+
+<span class="menu flex">
+<a>
+Bootstrap 
+</a>
+</span>
+
+<span class="menu flex">
+<a>
+SQL
+</a>
+</span>
+
+<span class="menu flex">
+<a>
+PHP
+</a>
+</span>
+
+<span class="menu flex">
+<a>
+PYTHON
+</a>
+</span>
+
+<span class="menu flex">
+<a>
+HOWTO
+</a>
+</span>
+
+<span class="menu flex">
+<a>
+W3.CSS
+</a>
+</span>
+
+<span onclick="listOpen(0);" class="menu">
+<a>
+MORE
+</a>
+<span id="g0"class="glyphicon glyphicon-chevron-down" >
+</span>
+<span id="p0"class="glyphicon glyphicon-chevron-up" style="visibility:hidden">
+</span>
+</span>
+
+<span class="menu glyphicon glyphicon-search"style="float:right;padding:1%;">
+</span>
+
+<span onclick="listOpen(1);" class="menu flex"style="float:right">
+<a>
+EXERCISES
+</a>
+<span id="g1"class="glyphicon glyphicon-chevron-down" >
+</span>
+<span id="p1"class="glyphicon glyphicon-chevron-up" style="visibility:hidden">
+</span>
+</span>
+
+<span onclick="listOpen(2);"class="menu"style="float:right">
+<a>
+REFRENCES
+</a>
+<span id="g2"class="glyphicon glyphicon-chevron-down" >
+</span>
+<span id="p2"class="glyphicon glyphicon-chevron-up" style="visibility:hidden">
+</span>
+</span>
+</span>
+<!---------------------------------------------------list------------------------------------------->
+<div class="list row navbar-fixed-top" >
+<div class="col-sm-4">
+<h3>
+HTML & CSS:
+</h3>
+<ul>
+
+<li><a>Learn HTML</a></li>
+<li><a>Learn CSS</a></li>
+<li><a>Learn Bootstrap</a></li>
+<li><a>Learn W3.CSS</a></li>
+<li><a>Learn Colors</a></li>
+<li><a>Learn Icons</a></li>
+<li><a>Learn Graphics</a></li>
+<li><a>Learn SVG</a></li>
+<li><a>Learn Canvas</a></li>
+<li><a>Learn Sass</a></li>
+</ul>
+</div>
+</div>
+<div class="list row navbar-fixed-top" >
+<div class="col-sm-4">
+<h3>
+EXERCISES:
+</h3>
+<ul>
+
+<li><a>Learn HTML</a></li>
+<li><a>Learn CSS</a></li>
+<li><a>Learn Bootstrap</a></li>
+<li><a>Learn W3.CSS</a></li>
+<li><a>Learn Colors</a></li>
+<li><a>Learn Icons</a></li>
+<li><a>Learn Graphics</a></li>
+<li><a>Learn SVG</a></li>
+<li><a>Learn Canvas</a></li>
+<li><a>Learn Sass</a></li>
+</ul>
+</div>
+</div>
+<nav class="list row navbar-fixed-top">
+<div class="col-sm-4" >
+<h3>
+REFRENCES:
+</h3>
+<ul>
+
+<li><a>Learn HTML</a></li>
+<li><a>Learn CSS</a></li>
+<li><a>Learn Bootstrap</a></li>
+<li><a>Learn W3.CSS</a></li>
+<li><a>Learn Colors</a></li>
+<li><a>Learn Icons</a></li>
+<li><a>Learn Graphics</a></li>
+<li><a>Learn SVG</a></li>
+<li><a>Learn Canvas</a></li>
+<li><a>Learn Sass</a></li>
+</ul>
+</div>
+</nav>
+</div>
+
+
+<!-------------------------------------------------menu------------------------------------------>
+<div onclick="listClose();" class="row">
+<div id="mmd" class="col-sm-3" style="color:#eee;background-color:#333; float:left;padding:1% 5% 5% 5%;overflow:auto;height:1000px;">
+<li><a>Learn HTML</a></li>
+<li><a>Learn CSS</a></li>
+<li><a>Learn Bootstrap</a></li>
+<li><a>Learn W3.CSS</a></li>
+<li><a>Learn Colors</a></li>
+<li><a>Learn Icons</a></li>
+<li><a>Learn Graphics</a></li>
+<li><a>Learn SVG</a></li>
+<li><a>Learn Canvas</a></li>
+<li><a>Learn Sass</a></li>
+<li><a>Learn HTML</a></li>
+<li><a>Learn CSS</a></li>
+<li><a>Learn Bootstrap</a></li>
+<li><a>Learn W3.CSS</a></li>
+<li><a>Learn Colors</a></li>
+<li><a>Learn Icons</a></li>
+<li><a>Learn Graphics</a></li>
+<li><a>Learn SVG</a></li>
+<li><a>Learn Canvas</a></li>
+<li><a>Learn Sass</a></li>
+<li><a>Learn HTML</a></li>
+<li><a>Learn CSS</a></li>
+<li><a>Learn Bootstrap</a></li>
+<li><a>Learn W3.CSS</a></li>
+<li><a>Learn Colors</a></li>
+<li><a>Learn Icons</a></li>
+<li><a>Learn Graphics</a></li>
+<li><a>Learn SVG</a></li>
+<li><a>Learn Canvas</a></li>
+<li><a>Learn Sass</a></li>
+<li><a>Learn HTML</a></li>
+<li><a>Learn CSS</a></li>
+<li><a>Learn Bootstrap</a></li>
+<li><a>Learn W3.CSS</a></li>
+<li><a>Learn Colors</a></li>
+<li><a>Learn Icons</a></li>
+<li><a>Learn Graphics</a></li>
+<li><a>Learn SVG</a></li>
+<li><a>Learn Canvas</a></li>
+<li><a>Learn Sass</a></li>
+<li><a>Learn HTML</a></li>
+<li><a>Learn CSS</a></li>
+<li><a>Learn Bootstrap</a></li>
+<li><a>Learn W3.CSS</a></li>
+<li><a>Learn Colors</a></li>
+<li><a>Learn Icons</a></li>
+<li><a>Learn Graphics</a></li>
+<li><a>Learn SVG</a></li>
+<li><a>Learn Canvas</a></li>
+<li><a>Learn Sass</a></li>
+</div>
+	
+<div onclick="listClose();" class="col-sm-9" style="float:right;padding:5%;">
+
+<h1>
+Hi, This is tutorial
+</h1>
+</div>
+</div>
+
+<script>
+var hid=document.getElementsByClassName('flex');
+var k;
+		for(k=hid.length-1;	k>=((window.innerWidth-600)/100);k--)
+			{
+			hid[k].style.width='0';
+			hid[k].style.padding='0';
+			hid[k].style.margin='0';
+			hid[k].style.visibility='hidden';
+			}
+
+
+		for(k=0;k<((window.innerWidth-600)/100);k++)
+			{
+			hid[k].style.width='auto';
+			hid[k].style.padding='1% 1% 1% 1%';
+			hid[k].style.visibility='visible';
+			}
+				if(window.innerWidth<1000)
+				{
+				document.getElementById('mmd').style.width='0';
+				document.getElementById('mmd').style.padding='0';
+				document.getElementById('mmd').style.visibility='hidden';
+				document.getElementById('mnubtn').style.width='auto';
+				document.getElementById('mnubtn').style.padding='1%';
+				document.getElementById('mnubtn').style.visibility='visible';
+				
+				}
+				else
+				{
+				document.getElementById('mmd').style.width='auto';
+				document.getElementById('mmd').style.padding='5%';
+				document.getElementById('mmd').style.visibility='visible';
+				document.getElementById('mnubtn').style.width='0';
+				document.getElementById('mnubtn').style.padding='0';
+				document.getElementById('mnubtn').style.visibility='hidden';
+				}
+function change()
+		{
+			for(k=hid.length-1;	k>=((window.innerWidth-600)/100);k--)
+			
+				{
+				hid[k].style.width='0';
+				hid[k].style.padding='0';
+				hid[k].style.visibility='hidden';
+				}
+				for(k=0;k<((window.innerWidth-600)/100);k++)
+				{
+				hid[k].style.width='auto';
+				hid[k].style.padding='1% 1% 1% 1%';
+				hid[k].style.visibility='visible';
+				}
+				if(window.innerWidth<1000)
+				{
+				document.getElementById('mmd').style.width='0';
+				document.getElementById('mmd').style.padding='0';
+				document.getElementById('mmd').style.visibility='hidden';
+				document.getElementById('mnubtn').style.width='auto';
+				document.getElementById('mnubtn').style.padding='1%';
+				document.getElementById('mnubtn').style.visibility='visible';
+				
+				}
+				else
+				{
+				document.getElementById('mmd').style.width='auto';
+				document.getElementById('mmd').style.padding='5%';
+				document.getElementById('mmd').style.visibility='visible';
+				document.getElementById('mnubtn').style.width='0';
+				document.getElementById('mnubtn').style.padding='0';
+				document.getElementById('mnubtn').style.visibility='hidden';
+				}
+
+		}
+
+</script>
+
+</body>
+</html>
